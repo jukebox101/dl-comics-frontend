@@ -5,9 +5,9 @@ import './NavBar.css'
 const NavBar = () => {
     return (
         
-            <div class="topnav">
+            <div className="topnav">
                 <NavLink to="/" exact>Home</NavLink>
-                <NavLink to="/about" exact >About</NavLink>
+                <NavLink to="/comics" exact >Comics</NavLink>
                 <NavLink to="/users" exact >Users</NavLink>
                 <input type="text" placeholder="Search.."/>
             </div>
