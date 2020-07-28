@@ -17,13 +17,14 @@ const ComicContainer = () => {
 
     const renderComics = () => {
         return comics.map(comic => <ComicCard 
-            key={comic.id} 
+            key={comic.id}
+            comicId={comic.id} 
             title={comic.title} 
             price={comic.price} 
             genre={comic.genre}
             author={comic.author}
             release_date={comic.release_date}
-            descripton={comic.descripton}
+            description={comic.description}
             publisher={comic.publisher} />)
     }
     return (
