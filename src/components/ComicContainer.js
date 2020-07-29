@@ -3,21 +3,23 @@ import ComicCard from './ComicCard'
 import Cart from './Cart'
 import CartContext from './CartContext'
 
-const ComicContainer = () => {
+const ComicContainer = (props) => {
     
     let [comics, setComics] = useState([])
-    
-    const baseUrl = "http://localhost:3000"
+    let [cart, setCart] = useState([])
+    console.log(cart)
+
     useEffect(() => {
-        fetch(`${baseUrl}/comics`)
+        fetch(`http://localhost:3000/comics`)
         .then(r => r.json())
         .then(comicsData => {
-            const comics = comicsData
-            setComics(comics)
+            const comicsArr = comicsData
+            setComics(comicsArr)
         })
     }, [])
-
+    
     const comicsCards = comics.map(comic => 
+        comic.title.toLowerCase().includes(props.query) ? 
         <ComicCard 
             key={comic.id}
             comicId={comic.id} 
@@ -28,8 +30,10 @@ const ComicContainer = () => {
             release_date={comic.release_date}
             description={comic.description}
             publisher={comic.publisher} 
-            />)
-    
+            />
+            : null
+            )
+            
     return (
         <CartContext>
         <div>

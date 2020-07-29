@@ -7,10 +7,12 @@ import ComicContainer from './components/ComicContainer';
 import Home from './components/Home'
 import {BrowserRouter as Router, Route, Switch, Redirect, withRouter} from 'react-router-dom';
 import ComicShow from "./components/ComicShow";
+import Cart from './components/Cart';
 
 class App extends Component {
   state = {
-    currentUser: null
+    currentUser: null,
+    query: ""
   }
 
   handleLogin = currentUser => {
@@ -34,11 +36,16 @@ class App extends Component {
         })
       })
   }
+  handleQuery = (event) => {
+    console.log(event.target.value)
+    this.setState({query: event.target.value})
+    
+  }
 
   render() {
     return (
         <div className="app">
-          <NavBar currentUser={this.state.currentUser} handleLogout={this.handleLogout}/>
+          <NavBar query={this.state.query} handleQuery={this.handleQuery} currentUser={this.state.currentUser} handleLogout={this.handleLogout}/>
 
           <Switch>
             <Route exact path="/comics/:id" component={ComicShow} />
@@ -52,7 +59,10 @@ class App extends Component {
             <Route exact path="/signup" component={ SignUp } >
               <SignUp handleLogin={this.handleLogin} />
             </Route>
-
+            <Route exact path="/comics" >
+              <ComicContainer query={this.state.query} />
+            </Route>
+            <Route exact path="/cart" component={Cart} />
             <Route exact path="/" component={ Home } />
 
             <Route path="/comics" component={ComicContainer}>

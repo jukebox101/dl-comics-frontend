@@ -12,7 +12,7 @@ const ComicShow = ({ match }) => {
             
             const comicInfo = comic
             setComic(comic)
-            console.log(comicInfo)
+            console.log("comic info set",comicInfo)
         })
     },[])
 

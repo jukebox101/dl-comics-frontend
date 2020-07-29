@@ -1,8 +1,8 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import ComicShow from './ComicShow.js';
 import CartContext from './CartContext'
-
+import './ComicCard.css'
 
 const ComicCard = (props) => {
     const [cart, setCart] = useContext(CartContext)
