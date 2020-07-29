@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ComicCard from './ComicCard'
+import Cart from './Cart'
+import CartContext from './CartContext'
 
 const ComicContainer = () => {
     
@@ -29,9 +31,12 @@ const ComicContainer = () => {
             />)
     
     return (
-      <div>
-          {comicsCards}
-      </div>  
+        <CartContext>
+        <div>
+            <h2>Comics Page</h2>
+            {comicsCards}
+        </div> 
+        </CartContext> 
     )
 }
 export default ComicContainer;
