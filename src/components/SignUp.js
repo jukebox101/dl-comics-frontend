@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { render } from '@testing-library/react'
+import { useHistory } from 'react-router-dom';
 
 class SignUp extends Component {
     state = {
@@ -14,16 +15,16 @@ class SignUp extends Component {
 
         fetch('http://localhost:3000/users', {
             method: 'POST',
+            credentials: "include",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                ...this.state
-            }),
-            })
-            .then((response) => response.json())
-            .then((r)=> console.log(r)
-        )
+            body: JSON.stringify(this.state)
+        })
+        .then(r => r.json())
+        .then(user => {
+            this.props.handleLogin(user)
+        })
     }
 
     handleChange = e => {

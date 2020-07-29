@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { render } from '@testing-library/react'
+import { useHistory } from 'react-router-dom';
 
 class SignIn extends Component {
     state = {
@@ -11,6 +12,19 @@ class SignIn extends Component {
         e.preventDefault();
 
         this.setState({ username: "", password: "" })
+        fetch('http://localhost:3000/login', {
+            method: 'POST',
+            credentials: "include",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(this.state)
+            })
+            .then((response) => response.json())
+            .then((user)=> {
+                this.props.handleLogin(user)
+            }
+        )
 
     }
 
