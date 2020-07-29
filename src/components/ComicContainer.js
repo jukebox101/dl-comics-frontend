@@ -4,7 +4,9 @@ import ComicCard from './ComicCard'
 const ComicContainer = (props) => {
     
     let [comics, setComics] = useState([])
-    
+    let [cart, setCart] = useState([])
+    console.log(cart)
+
     useEffect(() => {
         fetch(`http://localhost:3000/comics`)
         .then(r => r.json())

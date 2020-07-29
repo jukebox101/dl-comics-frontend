@@ -4,8 +4,6 @@ import './NavBar.css'
 
 const NavBar = ({query, handleQuery}) => {
     
-    let [searchQuery, setSearchQuery] = useState(query)
-
     
     return (
         
