@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from "react";
 import ComicCard from './ComicCard'
+import Cart from './Cart'
+import CartContext from './CartContext'
 
 const ComicContainer = () => {
     
@@ -28,10 +30,12 @@ const ComicContainer = () => {
             publisher={comic.publisher} />)
     }
     return (
-      <div>
-          <h2>Comics Page</h2>
-          {renderComics()}
-      </div>  
+        <CartContext>
+        <div>
+            <h2>Comics Page</h2>
+            {renderComics()}
+        </div> 
+        </CartContext> 
     )
 }
 export default ComicContainer;
