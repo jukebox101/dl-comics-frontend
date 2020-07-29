@@ -35,12 +35,12 @@ const ComicContainer = (props) => {
             )
             
     return (
-        <CartContext>
+        // <CartContext>
         <div>
             <h2>Comics Page</h2>
             {comicsCards}
         </div> 
-        </CartContext> 
+        /* </CartContext>  */
     )
 }
 export default ComicContainer;
