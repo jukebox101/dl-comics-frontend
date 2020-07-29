@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ComicCard.css'
 const ComicCard = (props) => {
 
+    let [cart, setCart] = useState([])
+
+    
     return (
         <div className="card">
             <h2><Link to={`/comics/${props.comicId}`}>{props.title}</Link></h2>
