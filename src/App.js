@@ -1,13 +1,12 @@
-import React, {Component} from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 import SignIn from "./SignIn"
 import SignUp from './SignUp';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Home'
 import NavBar from './components/NavBar'
 import ComicContainer from './components/ComicContainer';
-
+import ComicShow from './components/ComicShow';
 
 
 class App extends Component {
@@ -21,8 +20,9 @@ class App extends Component {
           <Switch>
             <Route exact path="/login" component={ SignIn } />
             <Route exact path="/signup" component={ SignUp } />
+            <Route exact path="/comics/:id" component={ComicShow} />
+            <Route exact path="/comics" component={ComicContainer}/>
             <Route exact path="/" component={ Home } />
-            <Route path="/comics" component={ComicContainer}/>
             <Route path="/users" >
               <Users />
             </Route>
