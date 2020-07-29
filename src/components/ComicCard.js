@@ -14,7 +14,6 @@ const ComicCard = (props) => {
     return (
         <Router>
             <div>
-            <Route path={`/comics/${props.comicId}`} component={ComicShow} />
                 <h2>{<Link to={`/comics/${props.comicId}`}>{props.title}</Link>}</h2>
                 <p>Price: ${props.price}</p>
                 <p>Genre: {props.genre}</p>
