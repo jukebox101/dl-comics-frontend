@@ -37,9 +37,6 @@ class App extends Component {
               <ComicContainer query={this.state.query} />
             </Route>
             <Route exact path="/" component={ Home } />
-            <Route path="/users" >
-              <Users />
-            </Route>
           </Switch>
         </div>
       </Router>
@@ -75,7 +72,3 @@ class App extends Component {
 // }
 }
 export default App
-
-function Users() {
-  return <h2>Users</h2>;
-}
