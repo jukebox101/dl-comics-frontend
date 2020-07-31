@@ -8,7 +8,7 @@ const Cart = (props) => {
         }
     ])
 
-    console.log(total)
+    console.log(props.cart)
     const getTotalSum = () => {
         total = total.reduce((sum, { price }) => sum + { price }, 5);
         return total

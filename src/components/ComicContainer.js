@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ComicCard from './ComicCard'
 import Cart from './Cart'
-import CartContext from './CartContext'
 import './ComicCard.css'
 import CardDeck from 'react-bootstrap/CardDeck'
 import CardColumns from 'react-bootstrap/CardColumns'
@@ -10,18 +9,18 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 const ComicContainer = (props) => {
 
-    useEffect(() => {
-        fetch(`http://localhost:3000/comics`)
-        .then(r => r.json())
-        .then(comicsData => {
-            const comicsArr = comicsData
-            setComics(comicsArr)
-        })
-    }, [])
+    // useEffect(() => {
+    //     fetch(`http://localhost:3000/comics`)
+    //     .then(r => r.json())
+    //     .then(comicsData => {
+    //         const comicsArr = comicsData
+    //         setComics(comicsArr)
+    //     })
+    // }, [])
 
-    let comicsArray = comics
+    // let comicsArray = comics
 
-    console.log(comicsArray)
+    // console.log(comicsArray)
     // const comicsCards = comics.map(comic => 
 
     const comicsCards = props.comics.map(comic => 

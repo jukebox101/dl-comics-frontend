@@ -8,8 +8,6 @@ import ComicShow from './components/ComicShow'
 import ComicContainer from './components/ComicContainer'
 import Cart from './components/Cart'
 import {BrowserRouter as Router, Route, Switch, Redirect, withRouter} from 'react-router-dom';
-import ComicShow from "./components/ComicShow";
-import Cart from './components/Cart';
 import Container from 'react-bootstrap/Container'
 
 class App extends Component {
