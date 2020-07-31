@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {NavLink} from "react-router-dom";
 // import './NavBar.css'
 import Nav from 'react-bootstrap/Nav'
@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
 
-const NavBar = ({query, handleQuery}) => {
+const NavBar = ({query, handleQuery, cart}) => {
     
     return (
         // <Navbar bg="dark" variant="dark">
@@ -35,13 +35,19 @@ const NavBar = ({query, handleQuery}) => {
         //     </Nav>
         // </Navbar>
         <Navbar  bg="dark" variant="dark" expand="lg">
-        <Navbar.Brand href="/">DL Comics</Navbar.Brand>
+        <Navbar.Brand >DL Comics</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/comics">Comics</Nav.Link>
-            <Nav.Link href="/cart">Cart</Nav.Link>
+            <Nav.Link href="/">
+              <NavLink to="/" exact>Home</NavLink>
+            </Nav.Link>
+            <Nav.Link href="/comics">
+              <NavLink to="/comics" exact >Comics</NavLink>
+              </Nav.Link>
+            <Nav.Link>
+              <NavLink to="/cart" exact >Cart ({cart.length})</NavLink>
+            </Nav.Link>
           </Nav>
           <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={handleQuery} />

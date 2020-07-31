@@ -31,6 +31,7 @@ class App extends Component {
   
 
   addToCart = (product) => {
+    console.log("adding to cart from App.js")
       this.setState ({
         cart:[...this.state.cart, product]
       })
@@ -38,8 +39,10 @@ class App extends Component {
   }
 
   removeFromCart = (productToRemove) => {
+    const updateCart = this.state.cart.filter((product, index) => {if(index !== productToRemove) return product} )
+
     this.setState({
-        cart: (this.state.cart.filter(product => product.id !== productToRemove.id))
+        cart: updateCart
     })
   }
 
@@ -75,6 +78,7 @@ class App extends Component {
       
         <div className="app">
           <NavBar 
+            cart={this.state.cart}
             query={this.state.query} 
             handleQuery={this.handleQuery} 
             currentUser={this.state.currentUser} 

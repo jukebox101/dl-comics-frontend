@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ComicCard from './ComicCard'
-import Cart from './Cart'
 import './ComicCard.css'
-import CardDeck from 'react-bootstrap/CardDeck'
 import CardColumns from 'react-bootstrap/CardColumns'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -51,9 +49,7 @@ const ComicContainer = (props) => {
                         {comicsCards}
                     </CardColumns>
                 </Col>
-                
             </Row>
-            
         </Container>
 
         // <div className="container" >
