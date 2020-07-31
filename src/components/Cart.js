@@ -18,6 +18,7 @@ const Cart = (props) => {
     //     return total
     // }
 
+    let buttonClick = false
     const prices = props.cart.map(item => {return item.price})
     console.log("prices",prices)
 
@@ -25,8 +26,8 @@ const Cart = (props) => {
         return a+b;
     }, 0)
     console.log("sum",sum)
-
     console.log("cart", props.cart)
+    
     const eachItem = props.cart.map((item, idx) => {
         console.log(idx)
         return(
@@ -48,14 +49,34 @@ const Cart = (props) => {
             </Card>
             {' '}
             </Container>
-        // <div >
-        //     <h2></h2>
-        //     <p></p>
-        //     <button </button> 
-        // </div>
         )
     })
-
+   
+    if (eachItem.length === 0){
+        return(
+            <Container>
+            <Row>
+                <Col sm={8}>
+                    <h2>Empty Cart</h2>
+                </Col>
+                <Col sm={4}>
+                    <Card>
+                        <Card.Header>Total Cost</Card.Header>
+                        <Card.Body>
+                        <Card.Title> Item(s): {props.cart.length} </Card.Title>
+                        <Card.Text>
+                            Total: ${sum}
+                        </Card.Text>
+                        <Button onClick={() => {console.log("complete order")}}>Complete Order</Button>
+                        </Card.Body>
+                        
+                    </Card>
+                </Col>
+            </Row>
+                    
+        </Container>
+        )
+    }  else {
     return(
 
         <Container>
@@ -72,7 +93,7 @@ const Cart = (props) => {
                         <Card.Text>
                             Total: ${sum}
                         </Card.Text>
-                        <Button>Complete Order</Button>
+                        <Button onClick={() => {console.log("complete order")}}>Complete Order</Button>
                         </Card.Body>
                         
                     </Card>
@@ -80,19 +101,7 @@ const Cart = (props) => {
             </Row>
                     
         </Container>
-
-        // <div>
-        //     <h1>Shopping Cart</h1>
-        //     <div className="card">
-        //         <div>
-        //             {eachItem}
-        //         </div>
-        //         <div>
-        //             <h4>TOTAL COST: ${sum}</h4>
-        //         </div>
-        //     </div>
-        // </div>
-    )
+    )}
 }
 
 export default Cart;
