@@ -26,7 +26,10 @@ const [page, setPge] = useState("products")
                     }}
                 >Details</Button>
                 {' '}
-                <Button onClick={() => props.addToCart(props)}>Add to Cart</Button>
+                <Button onClick={() => {
+                    props.addToCart(props.price)
+                    console.log("clicked add button")
+                    }}>Add to Cart</Button>
             </Card.Footer>
         </Card>
         // <div className="column">

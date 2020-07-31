@@ -51,9 +51,7 @@ const ComicContainer = (props) => {
                         {comicsCards}
                     </CardColumns>
                 </Col>
-                
             </Row>
-            
         </Container>
 
         // <div className="container" >

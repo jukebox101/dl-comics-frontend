@@ -31,6 +31,7 @@ class App extends Component {
   
 
   addToCart = (product) => {
+    console.log("adding to cart from App.js")
       this.setState ({
         cart:[...this.state.cart, product]
       })
