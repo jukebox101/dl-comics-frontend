@@ -4,7 +4,6 @@ import './NavBar.css'
 
 const NavBar = ({query, handleQuery}) => {
     
-    
     return (
         
             <div className="topnav">
