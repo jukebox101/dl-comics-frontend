@@ -9,6 +9,7 @@ import ComicContainer from './components/ComicContainer'
 import Cart from './components/Cart'
 import {BrowserRouter as Router, Route, Switch, Redirect, withRouter} from 'react-router-dom';
 import Container from 'react-bootstrap/Container'
+import ThankYou from './components/ThankYou'
 
 class App extends Component {
   state = {
@@ -103,6 +104,9 @@ class App extends Component {
               <Home isLoggedIn={this.state.currentUser} logout={this.handleLogout}/>
             </Route>
 
+            <Route exact path="/thankyou">
+              <ThankYou/>
+            </Route>
             <Route exact path="/cart" component={ Cart } >
               <Cart cart={this.state.cart} removeFromCart={this.removeFromCart} />
             </Route>

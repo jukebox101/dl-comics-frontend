@@ -1,4 +1,5 @@
 import React from 'react';
+import {Route} from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
@@ -18,7 +19,6 @@ const Cart = (props) => {
     //     return total
     // }
 
-    let buttonClick = false
     const prices = props.cart.map(item => {return item.price})
     console.log("prices",prices)
 
@@ -52,33 +52,9 @@ const Cart = (props) => {
         )
     })
    
-    if (eachItem.length === 0){
+    if (eachItem.length !== 0){
         return(
-            <Container>
-            <Row>
-                <Col sm={8}>
-                    <h2>Empty Cart</h2>
-                </Col>
-                <Col sm={4}>
-                    <Card>
-                        <Card.Header>Total Cost</Card.Header>
-                        <Card.Body>
-                        <Card.Title> Item(s): {props.cart.length} </Card.Title>
-                        <Card.Text>
-                            Total: ${sum}
-                        </Card.Text>
-                        <Button onClick={() => {console.log("complete order")}}>Complete Order</Button>
-                        </Card.Body>
-                        
-                    </Card>
-                </Col>
-            </Row>
-                    
-        </Container>
-        )
-    }  else {
-    return(
-
+            
         <Container>
             <Row>
                 <Col sm={8}>
@@ -93,7 +69,7 @@ const Cart = (props) => {
                         <Card.Text>
                             Total: ${sum}
                         </Card.Text>
-                        <Button onClick={() => {console.log("complete order")}}>Complete Order</Button>
+                        <Button onClick={() => {window.location.replace("/thankyou")}}>Complete Order</Button>
                         </Card.Body>
                         
                     </Card>
@@ -101,6 +77,38 @@ const Cart = (props) => {
             </Row>
                     
         </Container>
+        )
+    }  else {
+    return(
+        <Container>
+                    <Row>
+                        <Col sm={8}>
+                        <Card>
+                                <Card.Header>Items</Card.Header>
+                                <Card.Body>
+                                <Card.Title> Empty Cart </Card.Title>
+                                <Card.Text>
+                                    Fill me up with awesome comics!
+                                </Card.Text>
+                                </Card.Body>
+                        </Card>
+                        </Col>
+                        <Col sm={4}>
+                            <Card>
+                                <Card.Header>Total Cost</Card.Header>
+                                <Card.Body>
+                                <Card.Title> Item(s): {props.cart.length} </Card.Title>
+                                <Card.Text>
+                                    Total: ${sum}
+                                </Card.Text>
+                                <Button onClick={() => {console.log("complete order")}}>Complete Order</Button>
+                                </Card.Body>
+                                
+                            </Card>
+                        </Col>
+                    </Row>
+                            
+                </Container>
     )}
 }
 
