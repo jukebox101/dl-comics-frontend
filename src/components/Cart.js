@@ -1,4 +1,5 @@
 import React from 'react';
+import {Route} from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
@@ -25,8 +26,8 @@ const Cart = (props) => {
         return a+b;
     }, 0)
     console.log("sum",sum)
-
     console.log("cart", props.cart)
+    
     const eachItem = props.cart.map((item, idx) => {
         console.log(idx)
         return(
@@ -48,16 +49,12 @@ const Cart = (props) => {
             </Card>
             {' '}
             </Container>
-        // <div >
-        //     <h2></h2>
-        //     <p></p>
-        //     <button </button> 
-        // </div>
         )
     })
-
-    return(
-
+   
+    if (eachItem.length !== 0){
+        return(
+            
         <Container>
             <Row>
                 <Col sm={8}>
@@ -72,7 +69,7 @@ const Cart = (props) => {
                         <Card.Text>
                             Total: ${sum}
                         </Card.Text>
-                        <Button>Complete Order</Button>
+                        <Button onClick={() => {window.location.replace("/thankyou")}}>Complete Order</Button>
                         </Card.Body>
                         
                     </Card>
@@ -80,19 +77,39 @@ const Cart = (props) => {
             </Row>
                     
         </Container>
-
-        // <div>
-        //     <h1>Shopping Cart</h1>
-        //     <div className="card">
-        //         <div>
-        //             {eachItem}
-        //         </div>
-        //         <div>
-        //             <h4>TOTAL COST: ${sum}</h4>
-        //         </div>
-        //     </div>
-        // </div>
-    )
+        )
+    }  else {
+    return(
+        <Container>
+                    <Row>
+                        <Col sm={8}>
+                        <Card>
+                                <Card.Header>Items</Card.Header>
+                                <Card.Body>
+                                <Card.Title> Empty Cart </Card.Title>
+                                <Card.Text>
+                                    Fill me up with awesome comics!
+                                </Card.Text>
+                                </Card.Body>
+                        </Card>
+                        </Col>
+                        <Col sm={4}>
+                            <Card>
+                                <Card.Header>Total Cost</Card.Header>
+                                <Card.Body>
+                                <Card.Title> Item(s): {props.cart.length} </Card.Title>
+                                <Card.Text>
+                                    Total: ${sum}
+                                </Card.Text>
+                                <Button onClick={() => {console.log("complete order")}}>Complete Order</Button>
+                                </Card.Body>
+                                
+                            </Card>
+                        </Col>
+                    </Row>
+                            
+                </Container>
+    )}
 }
 
 export default Cart;
