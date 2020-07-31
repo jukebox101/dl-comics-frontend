@@ -8,7 +8,6 @@ import FormControl from 'react-bootstrap/FormControl'
 
 const NavBar = ({query, handleQuery}) => {
     
-    
     return (
         // <Navbar bg="dark" variant="dark">
         //       <Nav>

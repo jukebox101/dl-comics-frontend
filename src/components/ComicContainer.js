@@ -9,10 +9,6 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 const ComicContainer = (props) => {
-    
-    let [comics, setComics] = useState([])
-    let [cart, setCart] = useState([])
-    console.log(cart)
 
     useEffect(() => {
         fetch(`http://localhost:3000/comics`)
@@ -26,8 +22,11 @@ const ComicContainer = (props) => {
     let comicsArray = comics
 
     console.log(comicsArray)
-    const comicsCards = comics.map(comic => 
+    // const comicsCards = comics.map(comic => 
+
+    const comicsCards = props.comics.map(comic => 
         comic.title.toLowerCase().includes(props.query) ? 
+
         <ComicCard 
             key={comic.id}
             comicId={comic.id} 
@@ -43,7 +42,7 @@ const ComicContainer = (props) => {
             addToCart={props.addToCart}
             />
             : null
-            )
+    )
             
     return (
         <Container >

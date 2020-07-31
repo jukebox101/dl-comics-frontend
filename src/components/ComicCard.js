@@ -1,13 +1,13 @@
 import React, {useContext, useState} from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import ComicShow from './ComicShow.js';
-import CartContext from './CartContext'
 import './ComicCard.css'
+import { render } from '@testing-library/react';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
 const ComicCard = (props) => {
-
+const [page, setPge] = useState("products")
     return (
 
         <Card className="card-style">
@@ -26,7 +26,7 @@ const ComicCard = (props) => {
                     }}
                 >Details</Button>
                 {' '}
-                <Button onClick={() => props.addToCart(props.title)}>Add to Cart</Button>
+                <Button onClick={() => props.addToCart(props)}>Add to Cart</Button>
             </Card.Footer>
         </Card>
         // <div className="column">

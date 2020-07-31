@@ -1,17 +1,39 @@
-import React, { useContext } from 'react'
-import CartContext from './CartContext'
+import React, { Link, useState } from 'react';
 
-const Cart = () => {
-    const [cart, setCart] = useContext(CartContext)
-    const totalPrice = cart.reduce((acc, curr) => acc + curr.price, 0)
-        return (
-            <div>
-                <span>Items in cart: {cart.length}</span>
-                <br />
-                <span>Total price: 0 </span>
+const Cart = (props) => {
+
+    let [total, setTotal] = useState([
+        {
+            total: 0
+        }
+    ])
+
+    console.log(total)
+    const getTotalSum = () => {
+        total = total.reduce((sum, { price }) => sum + { price }, 5);
+        return total
+    }
+    const eachItem = props.cart.map((item, idx) => {
+        return(
+        <div>
+            <h2>{item.title}</h2>
+            <p>Price: ${item.price}</p>
+            <button onClick={() => props.removeFromCart(idx)}>Remove from Cart</button> 
+        </div>)
+    })
+    return(
+        <div>
+            <h1>Shopping Cart</h1>
+            <div className="card">
+                <div>
+                    {eachItem}
+                </div>
+                <div>
+                    <h4>TOTAL COST: ${getTotalSum()}</h4>
+                </div>
             </div>
-        )
+        </div>
+    )
 }
 
-
-export default Cart
+export default Cart;
