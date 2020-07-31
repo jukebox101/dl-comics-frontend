@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import { render } from '@testing-library/react'
-import { useHistory } from 'react-router-dom';
+// import { render } from '@testing-library/react'
+// import { useHistory } from 'react-router-dom';
 
 class SignIn extends Component {
     state = {

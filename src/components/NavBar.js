@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {NavLink} from "react-router-dom";
 // import './NavBar.css'
 import Nav from 'react-bootstrap/Nav'
@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
 
-const NavBar = ({query, handleQuery}) => {
+const NavBar = ({query, handleQuery, cart}) => {
     
     return (
         // <Navbar bg="dark" variant="dark">
@@ -46,7 +46,7 @@ const NavBar = ({query, handleQuery}) => {
               <NavLink to="/comics" exact >Comics</NavLink>
               </Nav.Link>
             <Nav.Link>
-              <NavLink to="/cart" exact >Cart</NavLink>
+              <NavLink to="/cart" exact >Cart ({cart.length})</NavLink>
             </Nav.Link>
           </Nav>
           <Form inline>
