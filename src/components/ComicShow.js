@@ -18,13 +18,15 @@ const ComicShow = ({ match }) => {
 
     return(
         <div>
+            <img src={comic.img_url} alt={comic.title} width="450" height="600" />
             <h2>{comic.title}</h2>
+            <p>Publisher: {comic.publisher}</p>
             <p>Price: ${comic.price}</p>
             <p>Genre: {comic.genre}</p>
-            <p>Author: {comic.author}</p>
+            <p>Written By: {comic.author}</p>
+            <p>Art By: {comic.artist}</p>
             <p>Release Date: {comic.release_date}</p>
             <p>Description: {comic.description}</p>
-            <p>Publisher: {comic.publisher}</p>
         </div>
     )
 }
