@@ -8,11 +8,22 @@ import Home from './components/Home'
 import {BrowserRouter as Router, Route, Switch, Redirect, withRouter} from 'react-router-dom';
 import ComicShow from "./components/ComicShow";
 import Cart from './components/Cart';
+import Container from 'react-bootstrap/Container'
 
 class App extends Component {
   state = {
     currentUser: null,
-    query: ""
+    query: "",
+    cart: []
+  }
+
+  addToCart = (comic) => {
+    
+    this.setState({
+      ...this.state,
+      cart: {...this.state.cart, comic}
+    })
+    console.log(this.state.cart)
   }
 
   handleLogin = currentUser => {
@@ -44,9 +55,14 @@ class App extends Component {
 
   render() {
     return (
+      
         <div className="app">
-          <NavBar query={this.state.query} handleQuery={this.handleQuery} currentUser={this.state.currentUser} handleLogout={this.handleLogout}/>
-
+          <NavBar 
+            query={this.state.query} 
+            handleQuery={this.handleQuery} 
+            currentUser={this.state.currentUser} 
+            handleLogout={this.handleLogout}
+            />
           <Switch>
             <Route exact path="/comics/:id" component={ComicShow} />
             {/* <Route exact path="/comics" component={ComicContainer}/> */}
@@ -60,17 +76,16 @@ class App extends Component {
               <SignUp handleLogin={this.handleLogin} />
             </Route>
             <Route exact path="/comics" >
-              <ComicContainer query={this.state.query} />
+              <ComicContainer 
+                addToCart={this.addToCart} 
+                query={this.state.query} 
+                />
             </Route>
             <Route exact path="/cart" component={Cart} />
             <Route exact path="/" component={ Home } />
 
             <Route path="/comics" component={ComicContainer}>
               {this.state.currentUser ? <h1>Happy Shopping, {this.state.currentUser.username}</h1> : <Redirect to='/' />}
-            </Route>
-            
-            <Route path="/users" >
-              {/* <Users /> */}
             </Route>
           </Switch>
         </div>
