@@ -48,7 +48,7 @@ class App extends Component {
 
   handleLogin = (currentUser) => {
     this.setState({ currentUser }, () => {
-      this.props.history.push('/')
+      this.props.history.push('/comics')
     })
   }
   
@@ -95,9 +95,9 @@ class App extends Component {
               <SignUp handleLogin={this.handleLogin} />
             </Route>
 
-            <Route exact path="/comics" >
-              <ComicContainer cart={this.state.cart} addToCart={this.addToCart} comics={this.state.comics} query={this.state.query} /*handleCart={this.addToCart}*//>
-            </Route>
+            {this.state.currentUser && <Route exact path="/comics" render={() => <ComicContainer cart={this.state.cart} addToCart={this.addToCart} comics={this.state.comics} query={this.state.query}/>} />}
+              {/* <ComicContainer cart={this.state.cart} addToCart={this.addToCart} comics={this.state.comics} query={this.state.query}/> */}
+            {/* </Route> */}
 
             <Route exact path="/" component={ Home }  >
               <Home isLoggedIn={this.state.currentUser} logout={this.handleLogout}/>
