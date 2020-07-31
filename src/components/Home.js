@@ -15,7 +15,7 @@ function Home(props) {
             </div>
        </div>)
     }else{
-    return <h1>Happy Shopping, {props.isLoggedIn.username} <button onClick={props.logout}>Logout</button></h1>
+    return <h1 className="text">Have fun shopping, {props.isLoggedIn.username}! <button onClick={props.logout}>Logout</button></h1>
     }
 
 }
