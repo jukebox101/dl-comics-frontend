@@ -1,7 +1,7 @@
 💥 DL Comics 💥
 =====================
 
-DL Comics is an e-commerce web applcaition allowing users to search through comic book options, and add comic books to shopping carts.
+DL Comics is an e-commerce web application allowing users to search through comic book options, and add comic books to shopping carts.
 
 ---
 ## Built With
