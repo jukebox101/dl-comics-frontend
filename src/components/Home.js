@@ -7,7 +7,7 @@ function Home(props) {
     if(isLogged === null){
         return(<div>
             <h1 className="logo">DLComics</h1>
-            <p className="text">The one stop shop for all things comics! You name it, we got it!</p>
+            <p className="text">The exclusive one stop shop for all things comics! You name it, we got it! To shop with us you must first login or sign up! </p>
             <div className="buttons">
                 <Link to="/login" className="button">Login</Link>
                 <Link to="/signup" className="button">Sign Up</Link>

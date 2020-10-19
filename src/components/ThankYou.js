@@ -7,8 +7,7 @@ const ThankYou = () => {
         <Jumbotron>
             <h1>Thanks for shopping at DL Comics!</h1>
             <p>
-                This is a simple hero unit, a simple jumbotron-style component for calling
-                extra attention to featured content or information.
+            “With great power comes great responsibility.” -Uncle Ben
             </p>
             </Jumbotron>
     )
